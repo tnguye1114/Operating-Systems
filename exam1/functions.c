@@ -1,13 +1,21 @@
-// Function declaration
-int add(int a, int b);
-
-// Function definition
-int add(int a, int b) {
-    return a + b;
-}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int sum = add(3, 4);
-    printf("Sum: %d\n", sum);
+    int *arr = malloc(5 * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++)
+        arr[i] = i * 2;
+
+    for (int i = 0; i < 5; i++)
+        printf("%d ", arr[i]);
+
+    free(arr);
     return 0;
 }
+
+
